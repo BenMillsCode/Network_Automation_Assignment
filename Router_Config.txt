@@ -1,0 +1,38 @@
+hostname ***
+
+ip domain-name ***
+
+int s***
+ip address *** ***
+no shutdown
+exit
+
+crypto key generate rsa modulus 1024
+
+username admin privilege 15 secret admin
+
+line vty 0 15
+transport input ssh
+login local
+exit
+
+
+import netmiko
+
+R1 = {
+        'device_type': 'cisco_ios',
+        'host':'192.168.122.150',
+        'username':'admin',
+        'password':'admin'
+        }
+
+connected = ConnectHandler(**R1)
+connected.find_prompt()
+
+intbr = connected.send_command('show ip int br')
+open("showIpIntBrief.txt", "a")
+f.write(intbr)
+f.close()
+
+connected.disconnect()
+
