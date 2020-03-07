@@ -18,35 +18,15 @@ transport input ssh
 login local
 exit
 
-
-import netmiko
-
-R1 = {
-        'device_type': 'cisco_ios',
-        'host':'192.168.122.150',
-        'username':'admin',
-        'password':'admin'
-        }
-
-connected = ConnectHandler(**R1)
-connected.find_prompt()
-
-intbr = connected.send_command('show ip int br')
-open("showIpIntBrief.txt", "a")
-f.write(intbr)
-f.close()
-
-connected.disconnect()
-
-output:
-Interface                  IP-Address      OK? Method Status                Protocol
-FastEthernet0/0            209.165.200.233 YES NVRAM  up                    up
-FastEthernet0/1            unassigned      YES NVRAM  administratively down down
-Serial1/0                  172.16.1.2      YES NVRAM  up                    down
-Serial1/1                  172.16.2.2      YES NVRAM  up                    down
-Serial1/2                  unassigned      YES NVRAM  administratively down down
-Serial1/3                  unassigned      YES NVRAM  administratively down down
-Serial2/0                  unassigned      YES NVRAM  administratively down down
-Serial2/1                  unassigned      YES NVRAM  administratively down down
-Serial2/2                  unassigned      YES NVRAM  administratively down down
-Serial2/3                  unassigned      YES NVRAM  administratively down down
+***GNS3 Linux PC Install***
+apt-get install software-properties-common
+add-apt-repository ppa:deadsnakes/ppa
+apt-get update
+apt-get purge python3.5
+apt-get autoremove
+apt-get install python3.8
+apt-get install python3.8-distutils
+apt-get install wget
+wget https://bootstrap.pypa.io/get-pip.py
+python3.8 get-pip.py
+alias python='python3.8'
