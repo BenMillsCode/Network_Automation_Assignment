@@ -30,3 +30,32 @@ apt-get install wget
 wget https://bootstrap.pypa.io/get-pip.py
 python3.8 get-pip.py
 alias python='python3.8'
+
+***R2 GNS3 Config***
+hostname R2
+
+ip domain-name R2.com
+
+int s1/0
+ip address 172.16.1.2 255.255.255.252
+no shutdown
+exit
+
+int s1/1
+ip address 172.16.2.2 255.255.255.252
+no shutdown
+exit
+
+int f0/0
+ip address 209.165.200.233 255.255.255.248
+no shutdown
+exit
+
+crypto key generate rsa modulus 1024
+
+username admin privilege 15 secret admin
+
+line vty 0 4
+transport input ssh
+login local
+exit

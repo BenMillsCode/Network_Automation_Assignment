@@ -1,0 +1,11 @@
+{
+    "routers":{
+        "R2":{
+            "host":"209.165.200.233",
+            "username":"admin",
+            "password":"admin",
+            "device_type":"cisco_ios"
+        }
+    }
+
+}
