@@ -1,13 +1,11 @@
 hostname ***
 
-ip domain-name ***
-
 int s***
 ip address *** ***
 no shutdown
 exit
 
-ip domain-name R2try.com
+ip domain-name ***
 
 crypto key generate rsa modulus 1024
 

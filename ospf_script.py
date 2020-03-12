@@ -1,10 +1,6 @@
 import netmiko, re, json, sharedFunctions
 
-import json
-
-device_file = open("devices.json", "r")
-
-devices = json.loads(device_file.read())
+print(sharedFunctions.getDevicesDicts("devices.json", 'routers'))
 
 connected = sharedFunctions.sshConnection(devices["routers"]['R2'])
 

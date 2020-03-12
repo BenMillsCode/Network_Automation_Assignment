@@ -1,4 +1,4 @@
-import netmiko
+import netmiko, json
 
 def sshConnection(devices):
 
@@ -14,3 +14,19 @@ def sshConnection(devices):
 
     else:
         return netmiko.ConnectHandler(**devices)
+
+def getDevicesDicts(device_file, device_type):
+
+     device_file = open(device_file, "r")
+
+     devices = json.loads(device_file.read())[device_type]
+
+     devices_keys =  devices.keys()
+
+     devices_dicts = []
+
+     for key in devices_keys:
+          
+          devices_dicts.append(devices[key])
+
+     return devices_dicts
