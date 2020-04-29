@@ -4,11 +4,11 @@ two_switches = [{
     "host":"192.168.99.2",
     "username":"admin",
     "password":"admin"
-    },#{
-    #"host":"192.168.99.3",
-    #"username":"admin",
-    #"password":"admin"        
-    #}
+    },{
+    "host":"192.168.99.3",
+    "username":"admin",
+    "password":"admin"        
+    }
     ]
 
 vlans = [{
@@ -21,12 +21,12 @@ vlans = [{
     'name':'Engineering',
     'ip_add':"192.168.23.",
     'mask':'255.255.255.0'
-    }#,{
-    #'number':'99',
-    #'name':'Management',
-    #'ip_add':"192.168.99.",
-    #'mask':'255.255.255.0'
-    #}
+    },{
+    'number':'99',
+    'name':'Management',
+    'ip_add':"192.168.99.",
+    'mask':'255.255.255.0'
+    }
 ]
 
 #Create paramiko SSH client and add SSH keys
