@@ -1,0 +1,13 @@
+---
+- name: Trunk Links
+  hosts: switches
+  gather_facts: false
+  connection: network_cli
+
+  tasks:
+  - name: configure trunk links
+    ios_l2_interface:
+      name: interface fastethernet 0/3
+      mode: trunk
+      trunk_vlans: 99, 21, 23
+

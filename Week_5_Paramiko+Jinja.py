@@ -11,22 +11,10 @@ two_switches = [{
     }
     ]
 
-vlans = [{
-    'number':'21',
-    'name':'Accounting',
-    'ip_add':"192.168.21.",
-    'mask':'255.255.255.0'
-    },{
-    'number':'23',
-    'name':'Engineering',
-    'ip_add':"192.168.23.",
-    'mask':'255.255.255.0'
-    },{
-    'number':'99',
-    'name':'Management',
-    'ip_add':"192.168.99.",
-    'mask':'255.255.255.0'
-    }
+vlans = [
+    {'number':'21', 'name':'Accounting', 'ip_add':"192.168.21.", 'mask':'255.255.255.0'},
+    {'number':'23', 'name':'Engineering', 'ip_add':"192.168.23.",'mask':'255.255.255.0'},
+    {'number':'99', 'name':'Management', 'ip_add':"192.168.99.", 'mask':'255.255.255.0'}
 ]
 
 #Create paramiko SSH client and add SSH keys
@@ -34,7 +22,7 @@ client = paramiko.SSHClient()
 client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
 ENV = jinja2.Environment(loader=jinja2.FileSystemLoader('.'))
-template = ENV.get_template("template.j2")
+template = ENV.get_template("Week_5_Jinja_Snippet.j2")
 
 #Connect to the switches using a loop
 for switch in two_switches:
@@ -52,7 +40,10 @@ for switch in two_switches:
 
     #Start loop for vlan configuration
     for vlan in vlans:
+
+        #create the commands from the template
         vlan_config = template.render(vlan = vlan, ip_no=ip_no)
+        #send the commands
         connected.send(str(vlan_config))
         time.sleep(2)
         
@@ -61,3 +52,4 @@ for switch in two_switches:
 
 #Close Paramiko SSH connection client
 client.close()
+
