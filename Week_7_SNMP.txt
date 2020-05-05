@@ -1,0 +1,11 @@
+#Configuring SNMP Example
+
+snmp-server community ANT ro SNMP_ACL
+snmp-server location ANT_manager
+snmp-server contact ANT_Admin
+snmp-server host 209.165.200.238 version 2c ANT
+snmp-server enable traps ospf errors
+snmp-server enable traps ospf state-change
+
+ip access-list standard SNMP_ACL
+  permit 209.165.200.238
