@@ -1,0 +1,40 @@
+{  "response":[    {
+    "vlanNumber":500,
+    "numberOfIPs":256,
+    "ipAddress":"172.28.97.155",
+    "prefix":"24",
+    "interfaceName":"Vlan500",
+    "networkAddress":"172.28.97.0"
+},
+  {
+    "vlanNumber":300,
+    "numberOfIPs":4,
+    "ipAddress":"212.1.20.1",
+    "prefix":"30",
+    "interfaceName":"Vlan300",
+    "networkAddress":"212.1.20.0"
+},
+  {
+    "vlanNumber":1,
+    "interfaceName":"Vlan1"
+},
+  {
+    "vlanNumber":200,
+    "numberOfIPs":256,
+    "ipAddress":"10.1.12.1",
+    "prefix":"24",
+    "interfaceName":"Vlan200",
+    "networkAddress":"10.1.12.0"
+},
+  {
+    "vlanNumber":400,
+    "numberOfIPs":256,
+    "ipAddress":"10.1.14.1",
+    "prefix":"24",
+    "interfaceName":"Vlan400",
+    "networkAddress":"10.1.14.0"
+}
+],
+"version":"1.0"
+}
+
