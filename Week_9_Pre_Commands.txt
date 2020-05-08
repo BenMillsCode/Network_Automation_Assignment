@@ -1,0 +1,7 @@
+R2 ifconfig R2-eth0 209.165.200.233 netmask 255.255.255.248 up
+R2 ifconfig R2-eth1 172.16.1.2 netmask 255.255.255.252 up
+R2 ifconfig R2-eth2 172.16.2.2 netmask 255.255.255.252 up
+
+R1 ifconfig R1-eth0 172.16.1.1 netmask 255.255.255.252 up
+
+R3 ifconfig R3-eth0 172.16.2.1 netmask 255.255.255.248 up
